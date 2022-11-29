@@ -9,18 +9,26 @@ def validate_input():
         try:
             sqft = int(sqft)
         except ValueError:
-            raise ValueError("[-] Error: Input size must be an integer. Program Exiting")
+            raise ValueError(
+                "[-] Error: Input size must be an integer. Program Exiting"
+            )
 
         try:
             depth = int(depth)
         except ValueError:
-            raise ValueError("[-] Error: Input depth must be an integer. Program Exiting")
+            raise ValueError(
+                "[-] Error: Input depth must be an integer. Program Exiting"
+            )
 
         if sqft < 1:
-            raise ValueError("[-] Error: Input size must be greater than 0. Program Exiting")
+            raise ValueError(
+                "[-] Error: Input size must be greater than 0. Program Exiting"
+            )
 
         if depth < 1:
-            raise ValueError("[-] Error: Input depth must be greater than 0. Program Exiting")
+            raise ValueError(
+                "[-] Error: Input depth must be greater than 0. Program Exiting"
+            )
 
         return {"sqft": sqft, "depth": depth}
 
@@ -33,11 +41,17 @@ def calculate_price(input):
     price = 0
 
     if cubic_feet <= 199:
+        print("Breakdown: 1000")
         price = 1000
+
     elif cubic_feet > 199 and cubic_feet <= 399:
+        print(f"Breakdown: 1000 + {10 * (cubic_feet - 199)}")
         price = 1000 + (10 * (cubic_feet - 199))
+
     elif cubic_feet >= 400:
-        price = 1000 + (10 * (cubic_feet - 199)) + (20 * (cubic_feet - 399))
+        print(f"Breakdown: 1000 + 1000 + {20 * (cubic_feet - 399)}")
+        price = 2000 + (20 * (cubic_feet - 399))
+
     return price
 
 
