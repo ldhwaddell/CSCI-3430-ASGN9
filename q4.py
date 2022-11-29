@@ -9,18 +9,18 @@ def validate_input():
         try:
             sqft = int(sqft)
         except ValueError:
-            raise ValueError("[-] Error: Input size must be an integer")
+            raise ValueError("[-] Error: Input size must be an integer. Program Exiting")
 
         try:
             depth = int(depth)
         except ValueError:
-            raise ValueError("[-] Error: Input depth must be an integer")
+            raise ValueError("[-] Error: Input depth must be an integer. Program Exiting")
 
         if sqft < 1:
-            raise ValueError("[-] Error: Input size must be greater than 0")
+            raise ValueError("[-] Error: Input size must be greater than 0. Program Exiting")
 
         if depth < 1:
-            raise ValueError("[-] Error: Input depth must be greater than 0")
+            raise ValueError("[-] Error: Input depth must be greater than 0. Program Exiting")
 
         return {"sqft": sqft, "depth": depth}
 
