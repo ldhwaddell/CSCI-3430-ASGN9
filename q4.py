@@ -2,6 +2,10 @@ import sys
 
 
 def validate_input():
+    """
+    Function to validate the user input and either return 
+    validated input or raise a value error
+    """
     try:
         sqft = input("Input the size of the driveway in square feet: ")
         depth = input("Input the depth of the driveway in inches: ")
@@ -30,14 +34,15 @@ def validate_input():
                 "[-] Error: Input depth must be greater than 0. Program Exiting"
             )
 
-        return {"sqft": sqft, "depth": depth}
+        return (sqft, depth)
 
     except ValueError as err:
         raise err
 
 
-def calculate_price(input):
-    cubic_feet = int(input["sqft"] * input["depth"] / 12)
+def calculate_price(sqft, depth):
+    """Function to calculate the price based on constraints in q4"""
+    cubic_feet = int(sqft * (depth / 12))
     price = 0
 
     if cubic_feet <= 199:
@@ -57,10 +62,10 @@ def calculate_price(input):
 
 if __name__ == "__main__":
     try:
-        input = validate_input()
+        sqft, depth = validate_input()
     except ValueError as ex:
         print(ex)
         sys.exit(1)
     else:
-        price = calculate_price(input)
-        print(price)
+        price = calculate_price(sqft, depth)
+        print(f"${price}")
