@@ -15,7 +15,7 @@ def draw_window():
     title_font = pygame.font.SysFont("Calibri", 35)
     title = title_font.render("A09 – Lucas Waddell", 1, white)
     quit_font = pygame.font.SysFont("Calibri", 25)
-    quit = quit_font.render("Quit", 1, black)
+    quit = quit_font.render("OK", 1, black)
 
     # Window settings and size
     width, height = 700, 500
