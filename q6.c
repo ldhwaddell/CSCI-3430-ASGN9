@@ -11,3 +11,5 @@ int doMath(int a, int b, int c)
         return ((a * b) / c);
     }
 }
+
+//compiled with: gcc -fPIC -shared -o mylib.so q6.c
