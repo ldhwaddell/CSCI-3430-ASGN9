@@ -1,5 +1,7 @@
 import ctypes
 
+C_INT_MAX = 2147483647
+
 # Get input from user
 a = int(input("Please enter an integer value for A: "))
 b = int(input("Please enter an integer value for B: "))
@@ -17,7 +19,7 @@ func.doMath.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int]
 output = func.doMath(a, b, c)
 
 # If the c function returns INT_MAX - 1 (signals divide by 0 error), let user know
-if output == 2147483646:
+if output == C_INT_MAX - 1:
     print("Error: Division by zero")
 
 # Else, print output
