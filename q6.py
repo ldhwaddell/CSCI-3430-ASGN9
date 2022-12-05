@@ -9,7 +9,7 @@ c = int(input("Please enter an integer value for C: "))
 
 
 # Call the c "library"
-func = ctypes.CDLL("mylib.so")
+func = ctypes.CDLL("./mylib.so")
 
 # Specify the c integer arguments for the function
 func.doMath.argtypes = [ctypes.c_int, ctypes.c_int, ctypes.c_int]
